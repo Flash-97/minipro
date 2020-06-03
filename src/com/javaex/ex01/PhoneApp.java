@@ -46,7 +46,7 @@ public class PhoneApp {
 				break;
 
 			case 3:
-				resultList(pList);
+				deleteList(pList);
 				break;
 
 			case 4:
@@ -127,7 +127,7 @@ public class PhoneApp {
 	} // addList
 
 	// 삭제
-	public static void resultList(List<Person> pList) throws IOException {
+	public static void deleteList(List<Person> pList) throws IOException {
 		OutputStream ost = new FileOutputStream("./PhoneDB.txt");
 		OutputStreamWriter osr = new OutputStreamWriter(ost);
 		BufferedWriter bf = new BufferedWriter(osr);
