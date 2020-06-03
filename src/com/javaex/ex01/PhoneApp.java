@@ -46,7 +46,7 @@ public class PhoneApp {
 				break;
 
 			case 3:
-				deleteList(pList);
+				resultList(pList);
 				break;
 
 			case 4:
@@ -90,6 +90,7 @@ public class PhoneApp {
 		br.close();
 	} // readFile
 
+	// 리스트
 	public static void showList(List<Person> pList) throws IOException {
 		System.out.println("<1.리스트>");
 		for (Person p : pList) {
@@ -97,6 +98,7 @@ public class PhoneApp {
 		}
 	} // showList
 
+	// 등록
 	public static void addList(List<Person> pList) throws IOException {
 		OutputStream os = new FileOutputStream("./PhoneDB.txt", true);
 		OutputStreamWriter osw = new OutputStreamWriter(os);
@@ -124,7 +126,8 @@ public class PhoneApp {
 		bw.close();
 	} // addList
 
-	public static void deleteList(List<Person> pList) throws IOException {
+	// 삭제
+	public static void resultList(List<Person> pList) throws IOException {
 		OutputStream ost = new FileOutputStream("./PhoneDB.txt");
 		OutputStreamWriter osr = new OutputStreamWriter(ost);
 		BufferedWriter bf = new BufferedWriter(osr);
@@ -132,7 +135,7 @@ public class PhoneApp {
 		System.out.println("<3.삭제>");
 		System.out.print(">번호 :");
 		int num = sc.nextInt();
-		pList.remove(num);
+		pList.remove(num-1);
 
 		for (Person p : pList) {
 			bf.write(p.getName() + "," + p.getHp() + "," + p.getCompany());
@@ -144,6 +147,7 @@ public class PhoneApp {
 		bf.close();
 	} // delete
 
+	// 검색
 	public static void search(List<Person> pList) throws IOException {
 		System.out.println("<4.검색>");
 		System.out.print(">이름: ");
@@ -159,6 +163,7 @@ public class PhoneApp {
 		}
 	} // search
 
+	// 마무리
 	public static void end(List<Person> pList) throws IOException {
 		System.out.println("**********************************************");
 		System.out.println("*                 감사합니다.                *");
